@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 
-var speed = 1000
+var speed =100
 var velocity = Vector2()
 func shoot():
 	var bullet = preload("res://Bullet/Bullet.tscn").instance()
@@ -22,15 +22,16 @@ func _get_input():
 func shooting():
 	if Input.is_action_pressed("ui_space"):
 		shoot()
-# Called when the node enters the scene tree for the first time.
+
 func _process(_delta):
+	if velocity*speed ==Vector2(0,0):
+		$AnimatedSprite.play("idle")
+
+	else: 
+		$AnimatedSprite.play("run")
+	
 	_get_input()
 	shooting()
 	velocity = move_and_slide(velocity)
-	if velocity == 0:
-		$AnimatedSprite.play("run")
+	
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass

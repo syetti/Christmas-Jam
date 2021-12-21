@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/player-Sheet.png-3a3ad855ac506e5322af48efad96e25a.stex"
+path="res://.import/bullet.png-6b56c7898a9b46a3c3db58585f0f8e0d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player/PlayerSprites/player-Sheet.png"
-dest_files=[ "res://.import/player-Sheet.png-3a3ad855ac506e5322af48efad96e25a.stex" ]
+source_file="res://Sprites/bullet.png"
+dest_files=[ "res://.import/bullet.png-6b56c7898a9b46a3c3db58585f0f8e0d.stex" ]
 
 [params]
 
@@ -24,7 +24,7 @@ flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
-process/fix_alpha_border=true
+process/fix_alpha_border=false
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false

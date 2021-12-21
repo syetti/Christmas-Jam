@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Bullet/Bullet.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/bullet.png" type="Texture" id=2]
 
 [sub_resource type="PhysicsMaterial" id=3]
 friction = 0.0
@@ -22,7 +22,7 @@ can_sleep = false
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( -15.4785, 11.754 )
+position = Vector2( -0.387423, -0.19371 )
 scale = Vector2( 6.18179, 1.2 )
 texture = ExtResource( 2 )
 hframes = 6
