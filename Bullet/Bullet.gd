@@ -6,10 +6,9 @@ var inacurracy = rand_range(-7000, 7000)
 var velocity = Vector2(RUN_SPEED, inacurracy)
 	
 
-
-func _fixed_process(delta):
+func _physics_process(delta):
 	var motion = velocity * delta
-	self.position = velocity.x * motion
+	set_linear_velocity(motion)
 
 func _on_Area2D_body_enter( body ):
 	#if body.is_in_group("Enemy"):
