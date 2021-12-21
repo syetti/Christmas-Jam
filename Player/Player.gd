@@ -6,14 +6,14 @@ var velocity = Vector2()
 func shoot():
 	var bullet = preload("res://Bullet/Bullet.tscn").instance()
 	get_parent().add_child(bullet)
-	bullet.set_global_pos(get_node("Bulletspawn").get_global_pos())
+	bullet.set_global_position(get_node("Bulletspawn").get_global_position())
 
 func _get_input():
 	velocity = Vector2()
 	if Input.is_action_pressed("ui_up"):
-		velocity.y += 1
+		velocity.y -= 1
 	if Input.is_action_pressed("ui_down"):
-		velocity.y -= 1 
+		velocity.y += 1 
 	if Input.is_action_pressed("ui_right"):
 		velocity.x +=1
 	if Input.is_action_pressed("ui_left"):
@@ -25,7 +25,7 @@ func shooting():
 # Called when the node enters the scene tree for the first time.
 func _process(_delta):
 	_get_input()
-	print("green")
+	shooting()
 	velocity = move_and_slide(velocity)
 
 
