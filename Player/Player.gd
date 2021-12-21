@@ -27,6 +27,8 @@ func _process(_delta):
 	_get_input()
 	shooting()
 	velocity = move_and_slide(velocity)
+	if velocity == 0:
+		$AnimatedSprite.play("run")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
