@@ -2,13 +2,10 @@ extends RigidBody2D
 
 #onready var anim = get_node("AnimationPlayer")
 var RUN_SPEED = 82000
-var inacurracy = rand_range(-7000, 7000)
-var velocity = Vector2(RUN_SPEED, inacurracy)
 	
-
 func _physics_process(delta):
-	var motion = velocity * delta
-	set_linear_velocity(motion)
+	RUN_SPEED*=delta
+	apply_impulse(Vector2(), Vector2(RUN_SPEED,0).rotated(rotation))
 
 func _on_Area2D_body_enter( body ):
 	#if body.is_in_group("Enemy"):
