@@ -14,6 +14,10 @@ config/name="Christmas Jam"
 run/main_scene="res://Levels/Main.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+PlayerData="*res://Player/PlayerData.tscn"
+
 [display]
 
 window/size/width=348
@@ -97,6 +101,8 @@ ui_space={
 [physics]
 
 common/enable_pause_aware_picking=true
+2d/default_gravity=0
+2d/default_gravity_vector=Vector2( 0, 0 )
 
 [rendering]
 

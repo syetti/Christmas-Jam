@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-
+var health = 100
 var speed =100
 var velocity = Vector2()
 func shoot():
@@ -24,9 +24,12 @@ func shooting():
 	if Input.is_action_pressed("ui_select")&& $Bulletspawn/Timer.get_time_left() == 0:
 		shoot()
 		$Bulletspawn/Timer.start(0.5)
-		print("shooting")
 
 func _process(_delta):
+	$TextureProgress.value = health
+	if health <= 0:
+		died()
+		queue_free()
 	if velocity*speed ==Vector2(0,0):
 		$AnimatedSprite.play("idle")
 
@@ -41,3 +44,13 @@ func _process(_delta):
 func _on_Timer_timeout():
 	
 	pass # Replace with function body.
+
+
+func _on_Area2D_area_entered(area:Area2D):
+	if area.is_in_group("Enemy"):
+		health-=20
+		$TextureProgress.show()
+	pass # Replace with function body.
+func died() -> void :
+	PlayerData.deaths+=1
+	queue_free()

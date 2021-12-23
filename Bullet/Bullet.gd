@@ -7,19 +7,12 @@ func _physics_process(delta):
 	RUN_SPEED*=delta
 	apply_impulse(Vector2(), Vector2(RUN_SPEED,0).rotated(rotation))
 
-func _on_Area2D_body_enter( body ):
-	#if body.is_in_group("Enemy"):
-	#	anim.play("Bullexplode")
-	#	queue_free()
 		
-		
-	if body.is_in_group("Bullet_death"):
-		queue_free()
 
 
 func _on_Area2D_area_enter( area ):
-	#if area.is_in_group("Enemy"):
-		#anim.play("Bullexplode")
+	if area.is_in_group("Enemy"):
+		queue_free()
 
 		
 	if area.is_in_group("Bullet_death"):
