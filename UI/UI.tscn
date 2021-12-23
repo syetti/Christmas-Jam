@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Fonts/SHPinscher-Regular.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://UI/Kills.gd" type="Script" id=2]
+[ext_resource path="res://UI/Deaths.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 1 )
+
+[node name="UI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Kills" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 20.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Kills: "
+uppercase = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Deaths" type="Label" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -46.0
+margin_bottom = 20.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Deaths:"
+align = 1
+valign = 1
+autowrap = true
+uppercase = true
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

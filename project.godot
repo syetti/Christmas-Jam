@@ -14,6 +14,10 @@ config/name="Christmas Jam"
 run/main_scene="res://Levels/Main.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+PlayerData="*res://Player/PlayerData.tscn"
+
 [display]
 
 window/size/width=348

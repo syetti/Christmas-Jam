@@ -27,7 +27,8 @@ func shooting():
 
 func _process(_delta):
 	$TextureProgress.value = health
-	if health<= 0:
+	if health <= 0:
+		died()
 		queue_free()
 	if velocity*speed ==Vector2(0,0):
 		$AnimatedSprite.play("idle")
@@ -47,6 +48,9 @@ func _on_Timer_timeout():
 
 func _on_Area2D_area_entered(area:Area2D):
 	if area.is_in_group("Enemy"):
-		health-= 20
+		health-=20
 		$TextureProgress.show()
 	pass # Replace with function body.
+func died() -> void :
+	PlayerData.deaths+=1
+	queue_free()

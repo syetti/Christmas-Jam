@@ -13,7 +13,7 @@ var health = 3
 var vector = 0
 func _physics_process(delta):
 	if health <= 0:
-		queue_free()
+		scored()
 	
 	#zoom+=delta
 	#path_follow.offset = speed * zoom
@@ -31,7 +31,9 @@ func _physics_process(delta):
 	
 	pass
 
-
+func scored() -> void:
+	PlayerData.score +=1
+	queue_free()
 
 
 func _on_collision_area_entered(area:Area2D):

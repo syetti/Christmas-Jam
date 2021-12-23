@@ -1,0 +1,7 @@
+[gd_scene format=2]
+
+[node name="Boss" type="Node2D"]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="RigidBody2D"]
