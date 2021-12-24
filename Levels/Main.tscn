@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/snowfloor.png" type="Texture" id=2]
 [ext_resource path="res://UI/UI.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Levels/Main.gd" type="Script" id=4]
+[ext_resource path="res://Snow.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 108 )
@@ -75,3 +76,5 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 347.0
 margin_bottom = 217.0
+
+[node name="Node2D" parent="." instance=ExtResource( 5 )]

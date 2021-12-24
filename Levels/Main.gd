@@ -14,11 +14,28 @@ func _ready():
 	set_process(true)
 
 func _process(_delta):
-	while enemy_num < 6 && PlayerData.score <6:
-		enemy_num+=1
-		_spawn_enemy()
-	if PlayerData.score == 6:
-		_boss_spawn()
-		print("gribble")
-		PlayerData.score +=1
+	if PlayerData.level == 1:
+		while enemy_num < 6:
+			enemy_num+=1
+			_spawn_enemy()
+		if PlayerData.score == 6:
+			PlayerData.level +=1
+			enemy_num = 0
+	if PlayerData.level == 2:
+		while enemy_num< 8:
+			enemy_num +=1
+			_spawn_enemy()
+		if PlayerData.score == 14:
+			PlayerData.level +=1
+			enemy_num = 0
+	if PlayerData.level == 3:
+		while enemy_num <10:
+			enemy_num+=1
+			_spawn_enemy()
+		if PlayerData.score == 24:
+			if !spawn:
+				_boss_spawn()
+			spawn = true
+			PlayerData.level = 0
+			PlayerData.set_boss(true)
 	pass # Replace with function body.

@@ -1,7 +1,7 @@
 extends RigidBody2D
 
 
-var speed =2000
+var speed =5000
 var velocity = Vector2()
 var cbodies = get_colliding_bodies()
 # Called when the node enters the scene tree for the first time.
@@ -9,9 +9,12 @@ func _ready():
 	#$"../AnimationPlayer".play("Move Pattern")
 	pass
 #onready var path_follow = $".."
-var health = 3
+var health = 100
 var vector = 0
 func _physics_process(delta):
+	$"../bosshealth".value = health
+	if PlayerData.boss_spawn == true:
+		$"../bosshealth".show()
 	if health <= 0:
 		scored()
 	
@@ -22,8 +25,6 @@ func _physics_process(delta):
 		if $Detect.overlaps_body(i):
 			if i.is_in_group("mc"):
 				vector = (i.get_global_position() - get_global_position()).normalized()
-
-				
 				set_linear_velocity(vector*speed*delta)
 	for i in cbodies:
 		if i.is_in_group("Bullet"):
@@ -39,6 +40,6 @@ func scored() -> void:
 
 func _on_collision_area_entered(area:Area2D):
 	if area.is_in_group("Bullet"):
-		health -= 1
+		health -= 5
 	if area.is_in_group("mc"):
 		$AnimatedSprite.play("attack")

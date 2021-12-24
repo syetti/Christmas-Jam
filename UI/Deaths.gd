@@ -10,4 +10,6 @@ func _ready():
 
 
 func _physics_process(_delta):
+	if PlayerData.boss_spawn == true:
+		queue_free()
 	update_deaths()

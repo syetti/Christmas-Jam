@@ -24,7 +24,7 @@ func _get_input():
 func shooting():
 	if Input.is_action_pressed("ui_select")&& $Bulletspawn/Timer.get_time_left() == 0:
 		shoot()
-		$Bulletspawn/Timer.start(0.5)
+		$Bulletspawn/Timer.start(0.15)
 
 func _process(_delta):
 	
@@ -52,8 +52,12 @@ func _on_Area2D_area_entered(area:Area2D):
 	if area.is_in_group("Enemy"):
 		health-=20
 		$TextureProgress.show()
-	pass # Replace with function body.
+	pass # Replace with function body.'
+	if area.is_in_group("boss"):
+		health-=30
+		$TextureProgress.show()
 func died() -> void :
 	PlayerData.deaths+=1
 	PlayerData.reset_score()
+	PlayerData.reset_level()
 	queue_free()

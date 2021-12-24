@@ -1,7 +1,9 @@
 extends Label
 
-func update_score() -> void:
-	set_text("Kills: " + str(PlayerData.score))
+func update_levels() -> void:
+	set_text("Level " + str(PlayerData.level))
+	if PlayerData.boss_spawn == true:
+		set_text("!BOSS Level!")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -10,6 +12,6 @@ func _ready():
 
 
 func _physics_process(_delta):
-	if PlayerData.boss_spawn == true:
-		queue_free()
-	update_score()
+	
+
+	update_levels()

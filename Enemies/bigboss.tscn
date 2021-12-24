@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Sprites/grinchbosswalking-Sheet.png" type="Texture" id=1]
-[ext_resource path="res://Enemies/EnemyAI.gd" type="Script" id=2]
+[ext_resource path="res://Enemies/Boss.gd" type="Script" id=2]
 [ext_resource path="res://Sprites/grinchbossattack-Sheet.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/health.png" type="Texture" id=4]
 
 [sub_resource type="Animation" id=7]
 resource_name = "Move Pattern"
@@ -112,6 +113,21 @@ shape = SubResource( 6 )
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="enemy"]
 frames = SubResource( 12 )
 animation = "walking"
+frame = 3
 playing = true
+
+[node name="bosshealth" type="TextureProgress" parent="."]
+visible = false
+margin_left = -1.0
+margin_top = -68.0
+margin_right = 119.0
+margin_bottom = 52.0
+rect_scale = Vector2( 2.91, 1.6 )
+value = 100.0
+texture_progress = ExtResource( 4 )
+fill_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="area_entered" from="enemy/collision" to="enemy" method="_on_collision_area_entered"]
