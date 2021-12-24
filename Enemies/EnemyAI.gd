@@ -9,7 +9,7 @@ func _ready():
 	#$"../AnimationPlayer".play("Move Pattern")
 	pass
 #onready var path_follow = $".."
-var health = 3
+var health = 9
 var vector = 0
 func _physics_process(delta):
 	if health <= 0:
@@ -22,6 +22,7 @@ func _physics_process(delta):
 		if $Detect.overlaps_body(i):
 			if i.is_in_group("mc"):
 				vector = (i.get_global_position() - get_global_position()).normalized()
+
 				
 				set_linear_velocity(vector*speed*delta)
 	for i in cbodies:
@@ -39,3 +40,5 @@ func scored() -> void:
 func _on_collision_area_entered(area:Area2D):
 	if area.is_in_group("Bullet"):
 		health -= 1
+	if area.is_in_group("mc"):
+		$AnimatedSprite.play("attack")

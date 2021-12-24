@@ -3,6 +3,7 @@ extends KinematicBody2D
 var health = 100
 var speed =100
 var velocity = Vector2()
+
 func shoot():
 	
 	var bullet = preload("res://Bullet/Bullet.tscn").instance()
@@ -26,6 +27,7 @@ func shooting():
 		$Bulletspawn/Timer.start(0.5)
 
 func _process(_delta):
+	
 	$TextureProgress.value = health
 	if health <= 0:
 		died()
@@ -53,4 +55,5 @@ func _on_Area2D_area_entered(area:Area2D):
 	pass # Replace with function body.
 func died() -> void :
 	PlayerData.deaths+=1
+	PlayerData.reset_score()
 	queue_free()

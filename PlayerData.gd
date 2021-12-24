@@ -8,8 +8,10 @@ signal player_died
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
-func reset():
+func reset_score():
 	score = 0
+	
+func reset_deaths():
 	deaths = 0
 
 func set_score(value:int):
