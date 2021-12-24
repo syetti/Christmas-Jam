@@ -4,6 +4,8 @@ var deaths := 0 setget set_deaths
 var score := 0 setget set_score
 var level := 1 setget set_level
 var boss_spawn :bool = false setget set_boss
+var boss_dead :bool = false setget boss_death
+var start_end: bool= false setget start_ends
 signal score_updated
 signal player_died
 
@@ -30,6 +32,14 @@ func set_level(value:int):
 
 func set_boss(value:bool):
 	boss_spawn = value
+func boss_death(value:bool):
+	boss_dead = value
+func start_ends(value:bool):
+	start_end = value
+	$"/root/Main".queue_free()
+	get_tree().change_scene("res://EndScreen.tscn")
+	var endscreen = preload("res://EndScreen.tscn").instance()
+	endscreen.get_node("AnimationPlayer").play("ENDFADE")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

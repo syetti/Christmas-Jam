@@ -1,7 +1,7 @@
 extends RigidBody2D
 
 
-var speed =5000
+var speed =5500
 var velocity = Vector2()
 var cbodies = get_colliding_bodies()
 # Called when the node enters the scene tree for the first time.
@@ -16,7 +16,7 @@ func _physics_process(delta):
 	if PlayerData.boss_spawn == true:
 		$"../bosshealth".show()
 	if health <= 0:
-		scored()
+		boss_dead()
 	
 	#zoom+=delta
 	#path_follow.offset = speed * zoom
@@ -33,8 +33,8 @@ func _physics_process(delta):
 	
 	pass
 
-func scored() -> void:
-	PlayerData.score +=1
+func boss_dead() -> void:
+	PlayerData.boss_dead=true
 	queue_free()
 
 

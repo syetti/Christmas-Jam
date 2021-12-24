@@ -8,12 +8,21 @@ func _spawn_enemy():
 func _boss_spawn():
 	var boss = preload("res://Enemies/bigboss.tscn").instance()
 	get_parent().add_child(boss)
-
-# Called when the node enters the scene tree for the first time.
+var spawning_hat = true
 func _ready():
 	set_process(true)
+func spawn_hat():
+	var hat = preload("res://Hat.tscn").instance()
+	$".".add_child(hat)
+	
 
 func _process(_delta):
+	if PlayerData.boss_dead:
+		if spawning_hat:
+			spawn_hat()
+			spawning_hat = false
+		
+
 	if PlayerData.level == 1:
 		while enemy_num < 6:
 			enemy_num+=1

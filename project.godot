@@ -22,6 +22,7 @@ PlayerData="*res://Player/PlayerData.tscn"
 
 window/size/width=348
 window/size/height=216
+window/size/fullscreen=true
 window/vsync/use_vsync=false
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
@@ -30,6 +31,7 @@ window/stretch/aspect="keep"
 
 editor=false
 window=false
+windpw=false
 
 [importer_defaults]
 

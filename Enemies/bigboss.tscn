@@ -84,7 +84,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="Node2D" type="Node2D" groups=["boss"]]
+[node name="bigboss" type="Node2D" groups=["Bullet_death", "boss"]]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 reset_on_save = false
@@ -113,7 +113,7 @@ shape = SubResource( 6 )
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="enemy"]
 frames = SubResource( 12 )
 animation = "walking"
-frame = 3
+frame = 1
 playing = true
 
 [node name="bosshealth" type="TextureProgress" parent="."]

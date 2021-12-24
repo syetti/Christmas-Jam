@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
 [sub_resource type="ParticlesMaterial" id=1]
 emission_shape = 2
@@ -9,15 +9,6 @@ orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 color = Color( 2, 2, 2, 1 )
 
-[sub_resource type="Environment" id=2]
-background_mode = 4
-glow_enabled = true
-glow_intensity = 2.24
-glow_strength = 0.93
-glow_blend_mode = 0
-glow_hdr_luminance_cap = 10.0
-glow_bicubic_upscale = true
-
 [node name="Snow" type="Node2D"]
 
 [node name="Particles2D2" type="Particles2D" parent="."]
@@ -27,6 +18,3 @@ emitting = false
 amount = 200
 lifetime = 10.0
 process_material = SubResource( 1 )
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 2 )
