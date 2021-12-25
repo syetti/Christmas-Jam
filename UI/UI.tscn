@@ -16,8 +16,10 @@ __meta__ = {
 }
 
 [node name="Kills" type="Label" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -20.0
 margin_right = 40.0
-margin_bottom = 20.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "Kills: "
@@ -28,12 +30,13 @@ __meta__ = {
 }
 
 [node name="Deaths" type="Label" parent="."]
-anchor_top = 0.242
-anchor_bottom = 0.242
-margin_left = -1.0
-margin_top = -14.272
-margin_right = 43.0
-margin_bottom = 17.728
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -62.0
+margin_top = -20.0
+margin_right = -18.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "Deaths:"
@@ -48,11 +51,12 @@ __meta__ = {
 
 [node name="Level" type="Label" parent="."]
 anchor_left = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
+anchor_bottom = 1.0
 margin_left = -23.0
-margin_top = 14.0
+margin_top = -20.0
 margin_right = 23.0
-margin_bottom = 34.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "level"

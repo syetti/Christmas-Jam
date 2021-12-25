@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/snowfloor.png" type="Texture" id=2]
@@ -17,6 +17,15 @@ extents = Vector2( 181, 10 )
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 179, 10 )
+
+[sub_resource type="Environment" id=5]
+background_mode = 4
+glow_enabled = true
+glow_intensity = 2.24
+glow_strength = 0.93
+glow_blend_mode = 1
+glow_hdr_luminance_cap = 10.0
+glow_bicubic_upscale = true
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 4 )
@@ -77,4 +86,7 @@ anchor_bottom = 0.0
 margin_right = 347.0
 margin_bottom = 217.0
 
-[node name="Node2D" parent="." instance=ExtResource( 5 )]
+[node name="Snow" parent="." instance=ExtResource( 5 )]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 5 )

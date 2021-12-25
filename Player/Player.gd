@@ -60,4 +60,5 @@ func died() -> void :
 	PlayerData.deaths+=1
 	PlayerData.reset_score()
 	PlayerData.reset_level()
+	PlayerData.player_dead(true)
 	queue_free()

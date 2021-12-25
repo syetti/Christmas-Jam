@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Holiday Song.mp3-8737668adf57350c8495814846e8462f.mp3str"
+
+[deps]
+
+source_file="res://Player/Holiday Song.mp3"
+dest_files=[ "res://.import/Holiday Song.mp3-8737668adf57350c8495814846e8462f.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -6,6 +6,7 @@ var level := 1 setget set_level
 var boss_spawn :bool = false setget set_boss
 var boss_dead :bool = false setget boss_death
 var start_end: bool= false setget start_ends
+var alive:bool = true setget player_dead
 signal score_updated
 signal player_died
 
@@ -16,7 +17,7 @@ func reset_score():
 	score = 0
 
 func reset_level():
-	level = 0
+	level = 1
 
 func reset_deaths():
 	deaths = 0
@@ -29,6 +30,14 @@ func set_deaths(value:int):
 	emit_signal("player_died", value)
 func set_level(value:int):
 	level = value
+func player_dead(value:bool):
+	alive = value
+	$"/root/Main".queue_free()
+	get_tree().change_scene("res://RespawnScene.tscn")
+	var respwan_scene = preload("res://RespawnScene.tscn").instance()
+	respwan_scene.get_node("AnimationPlayer").play("ENDFADE")
+	
+
 
 func set_boss(value:bool):
 	boss_spawn = value

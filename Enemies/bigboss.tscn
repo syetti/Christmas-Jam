@@ -113,15 +113,13 @@ shape = SubResource( 6 )
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="enemy"]
 frames = SubResource( 12 )
 animation = "walking"
-frame = 1
 playing = true
 
 [node name="bosshealth" type="TextureProgress" parent="."]
-visible = false
 margin_left = -1.0
-margin_top = -68.0
+margin_top = -69.0
 margin_right = 119.0
-margin_bottom = 52.0
+margin_bottom = 51.0
 rect_scale = Vector2( 2.91, 1.6 )
 value = 100.0
 texture_progress = ExtResource( 4 )
