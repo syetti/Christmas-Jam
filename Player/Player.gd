@@ -1,12 +1,12 @@
-extends KinematicBody2D
+extends CharacterBody2D
 
 var health = 100
 var speed =100
-var velocity = Vector2()
+
 
 func shoot():
 	
-	var bullet = preload("res://Bullet/Bullet.tscn").instance()
+	var bullet = preload("res://Bullet/Bullet.tscn").instantiate()
 	get_parent().add_child(bullet)
 	bullet.set_global_position($Bulletspawn.get_global_position())
 	bullet.rotation_degrees = $Bulletspawn.rotation_degrees
@@ -28,19 +28,21 @@ func shooting():
 
 func _process(_delta):
 	
-	$TextureProgress.value = health
+	$TextureProgressBar.value = health
 	if health <= 0:
 		died()
 		queue_free()
 	if velocity*speed ==Vector2(0,0):
-		$AnimatedSprite.play("idle")
+		$AnimatedSprite2D.play("idle")
 
 	else: 
-		$AnimatedSprite.play("run")
+		$AnimatedSprite2D.play("run")
 	
 	_get_input()
 	shooting()
-	velocity = move_and_slide(velocity)
+	set_velocity(velocity)
+	move_and_slide()
+	velocity = velocity
 
 
 func _on_Timer_timeout():
@@ -51,11 +53,11 @@ func _on_Timer_timeout():
 func _on_Area2D_area_entered(area:Area2D):
 	if area.is_in_group("Enemy"):
 		health-=20
-		$TextureProgress.show()
+		$TextureProgressBar.show()
 	pass # Replace with function body.'
 	if area.is_in_group("boss"):
 		health-=30
-		$TextureProgress.show()
+		$TextureProgressBar.show()
 func died() -> void :
 	PlayerData.deaths+=1
 	PlayerData.reset_score()

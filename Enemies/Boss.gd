@@ -42,4 +42,4 @@ func _on_collision_area_entered(area:Area2D):
 	if area.is_in_group("Bullet"):
 		health -= 5
 	if area.is_in_group("mc"):
-		$AnimatedSprite.play("attack")
+		$AnimatedSprite2D.play("attack")

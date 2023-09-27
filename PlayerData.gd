@@ -1,12 +1,12 @@
 extends Node2D
 
-var deaths := 0 setget set_deaths
-var score := 0 setget set_score
-var level := 1 setget set_level
-var boss_spawn :bool = false setget set_boss
-var boss_dead :bool = false setget boss_death
-var start_end: bool= false setget start_ends
-var alive:bool = true setget player_dead
+var deaths := 0: set = set_deaths
+var score := 0: set = set_score
+var level := 1: set = set_level
+var boss_spawn :bool = false: set = set_boss
+var boss_dead :bool = false: set = boss_death
+var start_end: bool= false: set = start_ends
+var alive:bool = true: set = player_dead
 signal score_updated
 signal player_died
 
@@ -30,11 +30,11 @@ func set_deaths(value:int):
 	emit_signal("player_died", value)
 func set_level(value:int):
 	level = value
-func player_dead(value:bool):
-	alive = value
+func player_dead(status:bool):
+	alive = status
 	$"/root/Main".queue_free()
-	get_tree().change_scene("res://RespawnScene.tscn")
-	var respwan_scene = preload("res://RespawnScene.tscn").instance()
+	get_tree().change_scene_to_file("res://RespawnScene.tscn")
+	var respwan_scene = preload("res://RespawnScene.tscn").instantiate()
 	respwan_scene.get_node("AnimationPlayer").play("ENDFADE")
 	
 
@@ -46,8 +46,8 @@ func boss_death(value:bool):
 func start_ends(value:bool):
 	start_end = value
 	$"/root/Main".queue_free()
-	get_tree().change_scene("res://EndScreen.tscn")
-	var endscreen = preload("res://EndScreen.tscn").instance()
+	get_tree().change_scene_to_file("res://EndScreen.tscn")
+	var endscreen = preload("res://EndScreen.tscn").instantiate()
 	endscreen.get_node("AnimationPlayer").play("ENDFADE")
 
 

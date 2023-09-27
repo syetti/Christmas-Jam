@@ -15,8 +15,6 @@ func _physics_process(delta):
 	if health <= 0:
 		scored()
 	
-	#zoom+=delta
-	#path_follow.offset = speed * zoom
 	var bodies = $Detect.get_overlapping_bodies()
 	for i in bodies:
 		if $Detect.overlaps_body(i):
@@ -41,4 +39,4 @@ func _on_collision_area_entered(area:Area2D):
 	if area.is_in_group("Bullet"):
 		health -= 1
 	if area.is_in_group("mc"):
-		$AnimatedSprite.play("attack")
+		$AnimatedSprite2D.play("attack")

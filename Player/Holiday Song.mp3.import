@@ -2,14 +2,18 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-path="res://.import/Holiday Song.mp3-8737668adf57350c8495814846e8462f.mp3str"
+uid="uid://do71bhibak1k1"
+path="res://.godot/imported/Holiday Song.mp3-8737668adf57350c8495814846e8462f.mp3str"
 
 [deps]
 
 source_file="res://Player/Holiday Song.mp3"
-dest_files=[ "res://.import/Holiday Song.mp3-8737668adf57350c8495814846e8462f.mp3str" ]
+dest_files=["res://.godot/imported/Holiday Song.mp3-8737668adf57350c8495814846e8462f.mp3str"]
 
 [params]
 
 loop=true
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

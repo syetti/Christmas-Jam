@@ -2,17 +2,21 @@ extends Node2D
 var enemy_num = 0
 var spawn :bool = false
 func _spawn_enemy():
-	var enemy = preload("res://Enemies/enemies.tscn").instance()
+	var enemy = preload("res://Enemies/enemies.tscn").instantiate()
 	$".".add_child(enemy)
-	enemy.set_position(Vector2(rand_range(0,339), rand_range(0,208)))
+	enemy.set_position(Vector2(randf_range(0,339), randf_range(0,208)))
 func _boss_spawn():
-	var boss = preload("res://Enemies/bigboss.tscn").instance()
+	var boss = preload("res://Enemies/bigboss.tscn").instantiate()
 	get_parent().add_child(boss)
 var spawning_hat = true
+
+
 func _ready():
 	set_process(true)
+	
+
 func spawn_hat():
-	var hat = preload("res://Hat.tscn").instance()
+	var hat = preload("res://Hat.tscn").instantiate()
 	$".".add_child(hat)
 	
 
@@ -21,8 +25,6 @@ func _process(_delta):
 		if spawning_hat:
 			spawn_hat()
 			spawning_hat = false
-		
-
 	if PlayerData.level == 1:
 		while enemy_num < 6:
 			enemy_num+=1

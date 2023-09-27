@@ -5,7 +5,7 @@ var RUN_SPEED = 82000
 	
 func _physics_process(delta):
 	RUN_SPEED*=delta
-	apply_impulse(Vector2(), Vector2(RUN_SPEED,0).rotated(rotation))
+	apply_impulse(Vector2(RUN_SPEED,0).rotated(rotation), Vector2())
 
 		
 

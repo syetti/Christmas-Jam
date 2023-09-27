@@ -1,0 +1,10 @@
+res://default_env.tres
+res://Levels/Main.tscn
+res://Levels/Main.gd
+res://Player/PlayerData.tscn
+res://Enemies/enemies.tscn
+res://RespawnScene.tscn
+res://PlayerData.gd
+res://Respawn.gd
+res://Enemies/bigboss.tscn
+res://Enemies/EnemyAI.gd
