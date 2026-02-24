@@ -1,7 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://c7hq375gw576a"]
+[gd_scene format=3 uid="uid://c7hq375gw576a"]
 
 [ext_resource type="Texture2D" uid="uid://exotwgtv1xon" path="res://Sprites/grinchbosswalking-Sheet.png" id="1"]
-[ext_resource type="Script" path="res://Enemies/Boss.gd" id="2"]
+[ext_resource type="Script" uid="uid://btdhytf5lfjnj" path="res://Enemies/Boss.gd" id="2"]
 [ext_resource type="Texture2D" uid="uid://6a17jb3o6bol" path="res://Sprites/grinchbossattack-Sheet.png" id="3"]
 [ext_resource type="Texture2D" uid="uid://d4nl4lon8um52" path="res://Sprites/health.png" id="4"]
 
@@ -39,8 +39,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_aavxd"]
 _data = {
-"Move Pattern": SubResource("7"),
-"RESET": SubResource("8")
+&"Move Pattern": SubResource("7"),
+&"RESET": SubResource("8")
 }
 
 [sub_resource type="CircleShape2D" id="5"]
@@ -114,43 +114,39 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="bigboss" type="Node2D" groups=["Bullet_death", "boss"]]
+[node name="bigboss" type="Node2D" unique_id=1743417215 groups=["Bullet_death", "boss"]]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1929595792]
 reset_on_save = false
-libraries = {
-"": SubResource("AnimationLibrary_aavxd")
-}
+libraries/ = SubResource("AnimationLibrary_aavxd")
 
-[node name="enemy" type="RigidBody2D" parent="." groups=["Boss"]]
-mass = 0.00102041
-gravity_scale = 0.0
-max_contacts_reported = 2
-contact_monitor = true
+[node name="enemy" type="CharacterBody2D" parent="." unique_id=592010711 groups=["Boss"]]
+position = Vector2(588, 125)
 script = ExtResource("2")
 
-[node name="Detect" type="Area2D" parent="enemy"]
+[node name="Detect" type="Area2D" parent="enemy" unique_id=1247530956]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy/Detect" groups=["Enemy"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy/Detect" unique_id=1992114429 groups=["Enemy"]]
 shape = SubResource("5")
 
-[node name="collision" type="Area2D" parent="enemy" groups=["boss"]]
+[node name="collision" type="Area2D" parent="enemy" unique_id=799962915 groups=["boss"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy/collision" groups=["boss"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy/collision" unique_id=2026404357 groups=["boss"]]
 position = Vector2(0.5, 0.5)
 shape = SubResource("6")
 
-[node name="AnimatedSprite2" type="AnimatedSprite2D" parent="enemy"]
+[node name="AnimatedSprite2" type="AnimatedSprite2D" parent="enemy" unique_id=1308188820]
 sprite_frames = SubResource("12")
 animation = &"walking"
 
-[node name="bosshealth" type="TextureProgressBar" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy" unique_id=990842498]
+
+[node name="bosshealth" type="TextureProgressBar" parent="." unique_id=53157001]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 1.0
 offset_top = -227.0
-offset_right = 121.0
+offset_right = 120.0
 offset_bottom = -104.0
 grow_horizontal = 2
 scale = Vector2(9.59, 5.271)

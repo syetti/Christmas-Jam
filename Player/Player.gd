@@ -1,8 +1,10 @@
-extends CharacterBody2D
+class_name Player extends CharacterBody2D
+
+
 
 var health = 100
-var speed =100
-
+var speed =300
+var can_shoot = true
 
 func shoot():
 	
@@ -10,6 +12,8 @@ func shoot():
 	get_parent().add_child(bullet)
 	bullet.set_global_position($Bulletspawn.get_global_position())
 	bullet.rotation_degrees = $Bulletspawn.rotation_degrees
+	
+	
 func _get_input():
 	velocity = Vector2()
 	if Input.is_action_pressed("ui_up"):
@@ -22,9 +26,12 @@ func _get_input():
 		velocity.x -=1
 	velocity = velocity.normalized() * speed
 func shooting():
-	if Input.is_action_pressed("ui_select")&& $Bulletspawn/Timer.get_time_left() == 0:
+	if not can_shoot:
+		return
+	if Input.is_action_pressed("ui_select") :
 		shoot()
-		$Bulletspawn/Timer.start(0.15)
+		can_shoot = false
+		$Bulletspawn/Timer.start(2)
 
 func _process(_delta):
 	
@@ -32,35 +39,40 @@ func _process(_delta):
 	if health <= 0:
 		died()
 		queue_free()
-	if velocity*speed ==Vector2(0,0):
+	if velocity == Vector2(0,0):
 		$AnimatedSprite2D.play("idle")
-
-	else: 
+	else:
 		$AnimatedSprite2D.play("run")
-	
 	_get_input()
-	shooting()
-	set_velocity(velocity)
-	move_and_slide()
-	velocity = velocity
-
-
-func _on_Timer_timeout():
 	
-	pass # Replace with function body.
-
+	if $Bulletspawn/Timer.timeout:
+		can_shoot = true
+		shooting()
+	move_and_slide()
+	
+	
 
 func _on_Area2D_area_entered(area:Area2D):
 	if area.is_in_group("Enemy"):
-		health-=20
-		$TextureProgressBar.show()
-	pass # Replace with function body.'
+		damage_player(20)
+		
 	if area.is_in_group("boss"):
-		health-=30
-		$TextureProgressBar.show()
+		damage_player(30)
+		
 func died() -> void :
 	PlayerData.deaths+=1
 	PlayerData.reset_score()
 	PlayerData.reset_level()
 	PlayerData.player_dead(true)
 	queue_free()
+
+func damage_player(damage: int):
+	health -= damage
+	position += Vector2(randf_range(-2, 2), randf_range(-2,2))
+	$TextureProgressBar.show()
+	$TextureProgressBar/healthtimer.start(3)
+	
+	
+	
+func _on_healthtimer_timeout() -> void:
+	$TextureProgressBar.hide()

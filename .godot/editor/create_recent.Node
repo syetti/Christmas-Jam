@@ -1,2 +1,15 @@
-Container
+WorldEnvironment
 CollisionShape2D
+CharacterBody2D
+Area2D
+MarginContainer
+PanelContainer
+TabBar
+TabContainer
+Button
+Label
+BoxContainer
+HBoxContainer
+MenuButton
+VBoxContainer
+Panel

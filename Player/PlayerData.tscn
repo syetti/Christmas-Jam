@@ -1,10 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://b0hbheb7iidub"]
+[gd_scene format=3 uid="uid://b0hbheb7iidub"]
 
-[ext_resource type="Script" path="res://PlayerData.gd" id="1"]
+[ext_resource type="Script" uid="uid://f5buhbl0syo2" path="res://PlayerData.gd" id="1"]
+[ext_resource type="AudioStream" uid="uid://dwebpvi5hi8ge" path="res://Player/festv-frlix.mp3" id="2_p31t0"]
 
-[node name="Control" type="Node2D"]
+[node name="Control" type="Node2D" unique_id=1588307400]
 script = ExtResource("1")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=13436286]
 position = Vector2(-1, 1)
+stream = ExtResource("2_p31t0")
+volume_db = -22.431
 autoplay = true

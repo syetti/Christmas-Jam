@@ -1,59 +1,67 @@
-[gd_scene load_steps=10 format=3 uid="uid://dd1im330xlheb"]
+[gd_scene format=3 uid="uid://dd1im330xlheb"]
 
-[ext_resource type="PackedScene" path="res://Player/Player.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://e8lqlaoc8c0k" path="res://Player/Player.tscn" id="1"]
 [ext_resource type="Texture2D" uid="uid://c5i76xgqebulu" path="res://Sprites/snowfloor.png" id="2"]
-[ext_resource type="PackedScene" path="res://UI/UI.tscn" id="3"]
-[ext_resource type="Script" path="res://Levels/Main.gd" id="4"]
-[ext_resource type="PackedScene" path="res://Snow.tscn" id="5"]
+[ext_resource type="PackedScene" uid="uid://c64njcqy03eoy" path="res://UI/UI.tscn" id="3"]
+[ext_resource type="Script" uid="uid://dg4ov5ni7bigf" path="res://Levels/Main.gd" id="4"]
+[ext_resource type="PackedScene" uid="uid://b7hga4lw0mvu3" path="res://Snow.tscn" id="5"]
 
 [sub_resource type="RectangleShape2D" id="1"]
-size = Vector2(10, 96.5)
+size = Vector2(10, 229.66667)
 
 [sub_resource type="RectangleShape2D" id="2"]
-size = Vector2(10, 232)
+size = Vector2(14.69475, 232)
 
 [sub_resource type="RectangleShape2D" id="3"]
-size = Vector2(181, 10)
+size = Vector2(353.47992, 16.000002)
 
 [sub_resource type="RectangleShape2D" id="4"]
-size = Vector2(179, 10)
+size = Vector2(365.38458, 13.999954)
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" unique_id=701026895]
 scale = Vector2(3.276, 3)
 script = ExtResource("4")
 
-[node name="mc" parent="." groups=["mc"] instance=ExtResource("1")]
+[node name="Snow" parent="." unique_id=950736352 instance=ExtResource("5")]
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="mc" parent="." unique_id=1210059927 instance=ExtResource("1")]
 position = Vector2(174, 107)
 
-[node name="background" type="Sprite2D" parent="."]
+[node name="background" type="Sprite2D" parent="." unique_id=1759321221]
+self_modulate = Color(0.84947944, 0.84947944, 0.84947944, 1)
 show_behind_parent = true
 position = Vector2(176, 106)
 texture = ExtResource("2")
 
-[node name="Border" type="Area2D" parent="." groups=["Bullet_death"]]
+[node name="Border" type="StaticBody2D" parent="." unique_id=1063416498 groups=["Bullet_death"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Border"]
-position = Vector2(357, 108)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Border" unique_id=1225176971]
+position = Vector2(356.99994, 110.83333)
+scale = Vector2(0.9999999, 0.9999999)
 shape = SubResource("1")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Border"]
-position = Vector2(-10, 118)
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Border" unique_id=1854982070]
+position = Vector2(-7.6526246, 117.999985)
+scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("2")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Border"]
-position = Vector2(180, -10)
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Border" unique_id=1863903685]
+position = Vector2(176.43463, -6.9999976)
+scale = Vector2(0.9999998, 0.9999997)
 shape = SubResource("3")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Border"]
-position = Vector2(177, 225)
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Border" unique_id=823848068]
+position = Vector2(177.35043, 203)
+scale = Vector2(0.9999998, 0.99999976)
 shape = SubResource("4")
 
-[node name="UI" parent="." instance=ExtResource("3")]
-layout_mode = 3
+[node name="UI" parent="." unique_id=1913929880 instance=ExtResource("3")]
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_right = 347.0
+offset_top = 0.0
+offset_right = 351.95358
 offset_bottom = 217.0
-
-[node name="Snow" parent="." instance=ExtResource("5")]
+grow_horizontal = 1
+grow_vertical = 1

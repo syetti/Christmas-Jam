@@ -1,70 +1,159 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene format=3 uid="uid://c64njcqy03eoy"]
 
-[ext_resource path="res://Fonts/SHPinscher-Regular.otf" type="FontFile" id=1]
-[ext_resource path="res://UI/Kills.gd" type="Script" id=2]
-[ext_resource path="res://UI/Deaths.gd" type="Script" id=3]
-[ext_resource path="res://UI/Levels.gd" type="Script" id=4]
+[ext_resource type="FontFile" uid="uid://todd1dc36sst" path="res://Fonts/SHPinscher-Regular.otf" id="1"]
+[ext_resource type="Script" uid="uid://d2c6rona1k8o5" path="res://UI/Kills.gd" id="2"]
+[ext_resource type="Script" uid="uid://cdx8fak5xm23j" path="res://UI/Deaths.gd" id="3"]
+[ext_resource type="Script" uid="uid://eurgtjneuxu5" path="res://UI/Levels.gd" id="4"]
 
-[sub_resource type="FontFile" id=1]
-font_data = ExtResource( 1 )
+[sub_resource type="FontFile" id="1"]
+fallbacks = Array[Font]([ExtResource("1"), ExtResource("1")])
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/30/0/ascent = 0.0
+cache/0/30/0/descent = 0.0
+cache/0/30/0/underline_position = 0.0
+cache/0/30/0/underline_thickness = 0.0
+cache/0/30/0/scale = 1.0
 
-[node name="UI" type="Control"]
+[node name="UI" type="Control" unique_id=1260559481]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+offset_top = 3.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Kills" type="Label" parent="."]
-anchor_top = 1.0
+[node name="Settings" type="TabContainer" parent="." unique_id=1918378061]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.020000001
+anchor_top = 0.087000005
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -20.0
-offset_right = 40.0
-theme_override_colors/font_color = Color( 0, 0, 0, 1 )
-theme_override_fonts/font = SubResource( 1 )
-text = "Kills: "
-uppercase = true
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+offset_left = -23.04
+offset_top = -56.376003
+current_tab = 0
+tab_focus_mode = 1
 
-[node name="Deaths" type="Label" parent="."]
-anchor_left = 1.0
+[node name="PanelContainer" type="PanelContainer" parent="Settings" unique_id=1233555254]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Buttons" type="HBoxContainer" parent="Settings/PanelContainer" unique_id=1503801499]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="CloseButton" type="Button" parent="Settings/PanelContainer/Buttons" unique_id=2042229424]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Close"
+
+[node name="EndGameButton" type="Button" parent="Settings/PanelContainer/Buttons" unique_id=1501494160]
+layout_mode = 2
+text = "End Game"
+
+[node name="Audio" type="VBoxContainer" parent="Settings" unique_id=423601891]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Volume" type="BoxContainer" parent="Settings/Audio" unique_id=555171236]
+layout_mode = 2
+vertical = true
+
+[node name="VolumeLabel" type="Label" parent="Settings/Audio/Volume" unique_id=393557982]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Volume"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Volume" type="HSlider" parent="Settings/Audio/Volume" unique_id=876622292]
+layout_mode = 2
+
+[node name="HUD" type="Panel" parent="." unique_id=1491034508]
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 1
+anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -62.0
-offset_top = -20.0
-offset_right = -18.0
-theme_override_colors/font_color = Color( 0, 0, 0, 1 )
-theme_override_fonts/font = SubResource( 1 )
-text = "Deaths:"
-align = 1
-valign = 1
-autowrap = true
-uppercase = true
-script = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+offset_top = -21.0
+grow_horizontal = 2
+grow_vertical = 0
 
-[node name="Level" type="Label" parent="."]
+[node name="Level" type="Label" parent="HUD" unique_id=2099161574]
+layout_mode = 1
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -23.0
-offset_top = -20.0
-offset_right = 23.0
-theme_override_colors/font_color = Color( 0, 0, 0, 1 )
-theme_override_fonts/font = SubResource( 1 )
+anchor_bottom = 0.5
+offset_left = -14.5
+offset_top = -10.0
+offset_right = 14.5
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("1")
 text = "level"
-align = 1
-valign = 1
-autowrap = true
+horizontal_alignment = 1
+vertical_alignment = 1
 uppercase = true
-script = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+script = ExtResource("4")
+
+[node name="Deaths" type="Label" parent="HUD" unique_id=591660548]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -77.0
+offset_top = -18.5
+offset_bottom = 18.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("1")
+text = "Deaths:"
+vertical_alignment = 1
+uppercase = true
+script = ExtResource("3")
+
+[node name="Kills" type="Label" parent="HUD" unique_id=431421943]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -10.0
+offset_right = 39.0
+offset_bottom = 10.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("1")
+text = "Kills: "
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+script = ExtResource("2")

@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://pca8q6wktqcr"]
+
+[ext_resource type="FontFile" path="res://Fonts/Font.tres" id="1_a88np"]
+[ext_resource type="Script" uid="uid://bphx6s7eoyenf" path="res://Respawn.gd" id="2_htu4u"]
+
+[sub_resource type="StyleBoxFlat" id="4"]
+
+[sub_resource type="StyleBoxFlat" id="5"]
+bg_color = Color(1, 0, 0, 1)
+
+[node name="Button" type="Button" unique_id=618242364]
+visible = false
+offset_left = 158.333
+offset_top = 161.0
+offset_right = 234.333
+offset_bottom = 189.0
+theme_override_fonts/font = ExtResource("1_a88np")
+theme_override_styles/pressed = SubResource("4")
+theme_override_styles/hover = SubResource("5")
+text = "Play Again?"
+flat = true
+script = ExtResource("2_htu4u")
+
+[connection signal="pressed" from="." to="." method="_on_Button_pressed"]

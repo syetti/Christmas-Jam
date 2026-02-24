@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://dvaojhv8t2ne6"]
+
+[ext_resource type="Script" uid="uid://b4qg2qlant4jg" path="res://countdown.gd" id="1_ep8tu"]
+[ext_resource type="Texture2D" uid="uid://dtpslaqr0aoi0" path="res://Sprites/Solid_white_bordered.svg.png" id="2_scgq4"]
+[ext_resource type="FontFile" path="res://Fonts/Font.tres" id="3_a2sxx"]
+
+[node name="Countdown" type="Control" unique_id=912102931]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ep8tu")
+
+[node name="Timer" type="Timer" parent="." unique_id=1416694610]
+autostart = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=751099817]
+self_modulate = Color(0, 0, 0, 0.31764707)
+position = Vector2(317, 34)
+texture = ExtResource("2_scgq4")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1407601962]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=2075686556]
+offset_right = 1149.0
+offset_bottom = 647.0
+theme_override_fonts/font = ExtResource("3_a2sxx")
+theme_override_font_sizes/font_size = 100
+text = "gggasda"
+horizontal_alignment = 1
+vertical_alignment = 1

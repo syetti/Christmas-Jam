@@ -1,37 +1,36 @@
-extends RigidBody2D
+class_name Boss extends Enemy
 
 
-var speed =5500
-var velocity = Vector2()
-var cbodies = get_colliding_bodies()
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#$"../AnimationPlayer".play("Move Pattern")
+	health = 1000
+	player = find_player()
 	pass
-#onready var path_follow = $".."
-var health = 100
-var vector = 0
-func _physics_process(delta):
-	$"../bosshealth".value = health
-	if PlayerData.boss_spawn == true:
-		$"../bosshealth".show()
-	if health <= 0:
-		boss_dead()
 	
-	#zoom+=delta
-	#path_follow.offset = speed * zoom
+func find_player()-> Node2D : 
 	var bodies = $Detect.get_overlapping_bodies()
 	for i in bodies:
-		if $Detect.overlaps_body(i):
-			if i.is_in_group("mc"):
-				vector = (i.get_global_position() - get_global_position()).normalized()
-				set_linear_velocity(vector*speed*delta)
-	for i in cbodies:
-		if i.is_in_group("Bullet"):
-			$"..".queue_free()
-
+		if i.is_in_group("mc"):
+				return i
+		else:
+			return null
+	return null
 	
+func _physics_process(delta):
+	if not player:
+		player = find_player()
+	
+	if health <= 0:
+		boss_dead()
+		
+	if player:
+		var dir = (player.get_global_position() - get_global_position()).normalized()
+		velocity = dir * speed
+		move_and_slide()
 	pass
+
 
 func boss_dead() -> void:
 	PlayerData.boss_dead=true
@@ -40,6 +39,6 @@ func boss_dead() -> void:
 
 func _on_collision_area_entered(area:Area2D):
 	if area.is_in_group("Bullet"):
-		health -= 5
+		health -= 1
 	if area.is_in_group("mc"):
 		$AnimatedSprite2D.play("attack")
