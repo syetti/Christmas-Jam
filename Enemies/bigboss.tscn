@@ -121,7 +121,6 @@ reset_on_save = false
 libraries/ = SubResource("AnimationLibrary_aavxd")
 
 [node name="enemy" type="CharacterBody2D" parent="." unique_id=592010711 groups=["Boss"]]
-position = Vector2(588, 125)
 script = ExtResource("2")
 
 [node name="Detect" type="Area2D" parent="enemy" unique_id=1247530956]

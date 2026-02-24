@@ -6,3 +6,6 @@ res://Enemies/EnemyAI.gd
 res://Enemies/bigboss.tscn
 res://Bullet/Bulletspawn.gd
 res://Enemies/Boss.gd
+res://EndScreen.tscn
+res://EndScreen.gd
+res://RespawnScene.tscn

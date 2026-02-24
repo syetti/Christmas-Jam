@@ -3,7 +3,6 @@
 [ext_resource type="FontFile" uid="uid://todd1dc36sst" path="res://Fonts/SHPinscher-Regular.otf" id="1"]
 [ext_resource type="Texture2D" uid="uid://dtpslaqr0aoi0" path="res://Sprites/Solid_white_bordered.svg.png" id="2"]
 [ext_resource type="PackedScene" uid="uid://pca8q6wktqcr" path="res://RespawnButton.tscn" id="4_cnhfo"]
-[ext_resource type="Script" uid="uid://c5lotn3yshdln" path="res://RespawnScene.gd" id="5"]
 
 [sub_resource type="Animation" id="2"]
 resource_name = "ENDFADE"
@@ -113,11 +112,11 @@ cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
 [node name="RespawnScreen" type="Node2D" unique_id=307675446]
 scale = Vector2(3, 3)
-script = ExtResource("5")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=461777933]
 reset_on_save = false
 libraries/ = SubResource("AnimationLibrary_j2elp")
+autoplay = &"ENDFADE"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=862950344]
 modulate = Color(0, 0, 0, 1)

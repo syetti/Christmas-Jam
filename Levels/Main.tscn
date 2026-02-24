@@ -65,3 +65,5 @@ offset_right = 351.95358
 offset_bottom = 217.0
 grow_horizontal = 1
 grow_vertical = 1
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1118446708]

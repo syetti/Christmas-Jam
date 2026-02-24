@@ -1,3 +1,7 @@
+Button
+HBoxContainer
+VBoxContainer
+Control
 WorldEnvironment
 CollisionShape2D
 CharacterBody2D
@@ -6,10 +10,5 @@ MarginContainer
 PanelContainer
 TabBar
 TabContainer
-Button
 Label
 BoxContainer
-HBoxContainer
-MenuButton
-VBoxContainer
-Panel
